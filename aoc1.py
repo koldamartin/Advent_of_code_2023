@@ -14,4 +14,4 @@ for line in contents:
         
     numbers_list.append(int(str(first_letter)+str(last_letter)))   
     
-print(f"sum of first numbers is {sum(numbers_list)}")
+print(f"Sum of numbers is {sum(numbers_list)}")

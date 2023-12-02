@@ -4,7 +4,10 @@ with open('aoc_2.txt') as f:
 RED = 12
 GREEN = 13
 BLUE = 14
+# Result for part 1
 sum_result = 0
+# Result for part 2
+sum_of_power_result = 0
 
 # Loop through each line
 for line in contents:
@@ -38,8 +41,9 @@ for line in contents:
       # Create a list of dictionaries for specific line
       list_of_dict.append(game_set_dict)
 
-  # Check for each color if it is larger than given constant
+  # Solution to part 1
   add_number = True
+
   for dict in list_of_dict:
     if 'red' in dict and (dict['red']) > RED:
       add_number = False
@@ -51,4 +55,22 @@ for line in contents:
   if add_number == True:   
     sum_result += game_no
 
-print(f"The result is {sum_result}")
+  # Solution to part 2
+  reds=[]
+  blues=[]
+  greens=[]
+  for dict in list_of_dict:
+    if 'red' in dict:
+      reds.append(dict['red'])
+    if 'blue' in dict:
+      blues.append(dict['blue'])
+    if 'green' in dict:
+        greens.append(dict['green'])
+  power_line = max(reds) * max(blues) * max(greens)
+  sum_of_power_result += power_line
+
+# PART 1
+print(f"The result of part 1 is {sum_result}")
+
+# PART 2
+print(f"The result of part 2 is {sum_of_power_result}")
